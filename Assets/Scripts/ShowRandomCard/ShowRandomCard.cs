@@ -14,7 +14,7 @@ public class ShowRandomCard : MonoBehaviour
         get
         {
             if (_showRandomCardImpl == null)
-                _showRandomCardImpl = new(this.gameObject, currentCardLabel, () => drawCard?.Invoke());
+                _showRandomCardImpl = new(new GameObjectWrapper(this.gameObject), new TextMeshProWrapper(currentCardLabel), new RandomWrapper(), () => drawCard?.Invoke());
             
             return _showRandomCardImpl;
         }

@@ -5,17 +5,17 @@ using UnityEngine.Events;
 
 public class ShowRandomCardImpl
 {
-    TextMeshProUGUI currentCardLabel;
-    GameObject parent;
+    IText currentCardLabel;
+    IGameObject parent;
     Action drawCard;
+    IRandom rng;
 
-    static readonly System.Random rng = new();
-
-    public ShowRandomCardImpl(GameObject parent, TextMeshProUGUI currentCardLabel, Action drawCard)
+    public ShowRandomCardImpl(IGameObject parent, IText currentCardLabel, IRandom rng, Action drawCard)
     {
         this.parent = parent;
         this.currentCardLabel = currentCardLabel;
         this.drawCard = drawCard;
+        this.rng = rng;
     }
 
     public enum Suit
